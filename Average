@@ -1,0 +1,40 @@
+package week7;
+
+import java.util.Scanner;
+
+public class Average {
+	public static void main(String[] args){
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("합과 평균을 구하는 프로그램입니다.");
+		System.out.println("입력을 마치려면 q,혹은 Q를 입력하시오.");
+
+		double sum =0;
+		double avg=0;
+		double count =0;
+	
+		boolean done = false;
+		while(!done){ 
+			String word = input.next();
+			if(word.equalsIgnoreCase("q")){
+				break;
+
+			}
+			else{
+				sum = sum +Double.parseDouble(word);
+				count++;
+				avg = sum/count;
+			}
+		}
+
+		System.out.println("합  = "+sum);
+		System.out.println("평균 = "+avg);
+
+	}
+}
+
+
+
+Using while loop and Ignore exception
+calculate sum and average.
