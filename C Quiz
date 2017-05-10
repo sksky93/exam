@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main(){
+int x,y;
+x = -1;
+y = 2;
+
+printf("%d\n",x++);
+printf("%d\n",++x);
+printf("%d\n",x);
+printf("%d\n",--y);
+printf("%d\n",y--);
+printf("%d\n",y);
+
+
+printf("%d\n",x&y);
+printf("%d\n",x|y);
+
+x+=10;
+y+=10;
+
+printf("%d\n",x+=y);
+printf("%d\n",x-=y);
+printf("%d\n",x*=y);
+printf("%d\n",x/\y);
+printf("%d\n",x%=y);
+
+retunr 0;
+
+}
+
+
+i missed this problem.
+cuz i think x-=y will mean 11-10.
+but actually it means 21-10. 
+Now i understand that mechanism.
+
