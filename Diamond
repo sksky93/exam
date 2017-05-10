@@ -1,0 +1,37 @@
+package week7;
+
+import java.util.Scanner;
+
+
+public class Diamond {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input=new Scanner(System.in);
+		System.out.print("양의 정수 n을 입력하시요:");
+		int size=input.nextInt();
+		for(int i=1;i<=size;i++){//삼각형만드는for문
+			for(int j=size-i;j>0;j--){
+				System.out.print(" ");//빈칸출력
+			}
+			for(int k=1;k<=2*i-1;k++){
+				System.out.print("X");//X출력
+			}
+			System.out.println();    
+		}
+		for(int m=size;m>1;m--){//역삼각형만드는for문
+			for(int n=size;n>=m;n--){
+				System.out.print(" ");//빈칸출력
+			}
+			for(int l=0;l<2*m-3;l++){
+				System.out.print("X");//X출력
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+Using for loop
+made diamond. 
