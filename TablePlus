@@ -1,0 +1,80 @@
+mport java.util.Scanner;
+ 
+public class TablePlusArray {
+ 
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("행의 수: ");
+		int rows= input.nextInt();
+		System.out.print("열의 수: ");
+		int cols= input.nextInt();
+		System.out.print("난수의 최대값: ");
+		int max = input.nextInt();
+ 
+		int[][] table = new int[rows][cols];
+		int[] rowSum = new int[rows];
+		int[] colSum = new int[cols];
+		int total=0;
+		System.out.println("초기 배열");
+		display(table,rows,cols);
+		System.out.println("");
+		System.out.println("난수가 저장된 배열");
+		random(table,rows,cols,max);
+		System.out.println(" ");
+		calculateRowSums(table,rows,cols,rowSum);
+		calculateColSums(table,rows,cols,colSum);
+		displayAll(table,rows,cols,rowSum,colSum,total);
+ 
+ 
+	}
+	public static void display(int[][] table, int rows, int cols){
+		for(int i=0;i<rows;i++){
+			for(int j=0;j<cols;j++){
+				System.out.print(table[i][j]+"\t");
+			}
+			System.out.println("");
+		}
+	}
+ 
+	public static void random(int[][] table,int rows,int cols,int max){
+		for(int i=0; i<rows;i++){
+			for(int j=0; j<cols;j++){
+				table[i][j] = (int)(Math.random()*max);
+			}
+		}
+	}
+	public static void calculateRowSums(int[][] table,int rows,int cols, int[] rowSum){
+		for(int i=0; i<cols;i++){
+			for(int j=0;j<=table[i].length;j++){
+				rowSum[i] = rowSum[i]+table[i][j];
+			}
+		}
+	}
+	public static void calculateColSums(int[][] table,int rows,int cols,int[] colSum){
+		for(int i=0; i<rows;i++){
+			for(int j=0;j<=table[i].length;j++){
+				colSum[i] = colSum[i]+table[j][i];
+			}
+		}
+	}
+	public static int calculateTotal(int[] rowSum){
+		int sum=0;
+		for(int i=0; i<rowSum.length;i++){
+				sum += sum+rowSum[i];
+		}
+		return sum;
+	}
+	public static void displayAll(int[][] table, int rows, int cols,int[] rowSum, int[] colSum, int total){
+		for(int i=0;i<rows;i++){
+			for(int j=0;j<cols;j++){
+				System.out.print(table[i][j]+"\t");
+				System.out.print("\t\t");
+			}
+			System.out.println(rowSum[i]);
+		}
+		for(int k=0;k<colSum.length;k++){
+			System.out.print(colSum[k]);
+		}
+		System.out.print(total);
+	}
+}
