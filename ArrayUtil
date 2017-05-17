@@ -1,0 +1,73 @@
+public class ArrayUtil {
+ 
+	public static void main(String[] args) {
+	int[] a =new int[10];
+	boolean flag = true;
+	System.out.println("fillRandom test------");
+	
+	for(int n=0; n<5; n++){
+		fillRandom(a,20);
+		printArray(a,10);
+		flag = areDistinct(a,10);
+		if(flag){
+			System.out.println("원소중복");
+			
+		}else{
+			System.out.println("중복된것이 없습니다.");
+		}
+		
+	
+	}
+	System.out.println("fillRandomDistinct test------");
+	for(int n=0;n<5;n++){
+		a = new int[20];
+		
+		fillRandomDistinct(a,20);
+		printArray(a,20);
+		flag =areDistinct(a,20);
+		if(flag){
+			System.out.println("원소중복");
+			
+		}else{
+			System.out.println("중복된것이 없습니다.");
+		}
+		
+	}
+	}
+ 
+	public static void fillRandom(int[] list,int max){
+		for(int i=0; i<list.length;i++){
+			list[i]=(int)(max*Math.random()+1);
+		}
+	}
+ 
+	public static void fillRandomDistinct(int[] list, int max){
+		int count =0;
+		while(count<list.length){
+			int number = (int)(max*Math.random()+1);
+			if(Search.linearSearch(list,list.length,number)==-1){
+				list[count] = number;
+				count++;
+			}
+		}
+	}
+	public static boolean areDistinct(int[] a, int n){
+		boolean distinct = true;
+		for(int i=n-1; i>=1;i--){
+			if(Search.linearSearch(a,i,a[i])==-1){
+				distinct= true;
+			}
+			else{
+				distinct =false;
+				break;
+			}
+		}
+		return distinct;
+	}
+	public static void printArray(int[] a, int n){
+		for(int i=0; i<n; i++){
+			System.out.print(a[i]+" ");
+		}
+		System.out.println(" ");
+	}
+}
