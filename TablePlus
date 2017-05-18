@@ -45,14 +45,14 @@ public class TablePlusArray {
 	}
 	public static void calculateRowSums(int[][] table,int rows,int cols, int[] rowSum){
 		for(int i=0; i<cols;i++){               //계산은 되는데 범위오류발생
- 			for(int j=0;j<=table[i].length;j++){
-				rowSum[i] = rowSum[i]+table[i][j];
+ 			for(int j=0;j<=table[i].length;j++){   //table[i].lenghth는 행의 열의 수=5
+			rowSum[i] = rowSum[i]+table[i][j];
 			}
 		}
 	}
 	public static void calculateColSums(int[][] table,int rows,int cols,int[] colSum){
 		for(int i=0; i<rows;i++){
-			for(int j=0;j<=table[i].length;j++){
+			for(int j=0;j<=table.length;j++){    //table.length= 행의 수.
 				colSum[i] = colSum[i]+table[j][i];
 			}
 		}
