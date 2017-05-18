@@ -3,7 +3,7 @@
  
 int main() {
 	int size;
-	char list[SIZE] = {"OX"};
+	char list[SIZE];
 
 	int i;
 	char ch;
@@ -11,10 +11,10 @@ int main() {
     int count, temp;
 	scanf("%d", &size);
 	while (size--) {
-		scanf("%c", &ch);  //
+		scanf("%s", list);  //
 		
 		for (i = 0; i < SIZE;i++) {
-           			 list[i]= ch;
+           			
 			if (list[i] == 'O') {
 				count++;
 				temp += count;
@@ -27,3 +27,5 @@ int main() {
 		count = 0;
 	}
 }
+//%s가 문자형배열에 사용! 그리고 일반적으로 띄어쓰기까지만 읽어온다(MY NAME IS면 MY만 읽어온다.)
+//띄어쓰기를 포함해 읽어오고싶으면  scanf("%[^\n]",배열변수이름);형식을 이용!
