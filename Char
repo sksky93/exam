@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define SIZE 80
+ 
+int main() {
+	int size;
+	char list[SIZE] = {"OX"};
+
+	int i;
+	char ch;
+	
+    int count, temp;
+	scanf("%d", &size);
+	while (size--) {
+		scanf("%c", &ch);  //
+		
+		for (i = 0; i < SIZE;i++) {
+            list[i]= ch;
+			if (list[i] == 'O') {
+				count++;
+				temp += count;
+			}
+			else
+				count = 0;
+		}
+		printf("%d", temp);
+		temp = 0;
+		count = 0;
+	}
+}
