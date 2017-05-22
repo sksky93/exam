@@ -11,7 +11,7 @@ int main() {
     int count, temp;
 	scanf("%d", &size);
 	while (size--) {
-		scanf("%s", list);  //
+		scanf("%s", list);  //  5개 입력 후에 3개입력 하면 에러. 수정해야함.
 		
 		for (i = 0; i < SIZE;i++) {
            			
