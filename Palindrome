@@ -1,0 +1,34 @@
+#include <stdio.h>
+	int OriginNum; 
+	int ReversedNum = 0;
+	int RemainNum=0;
+	int n,i;
+	int Palindrome(int );
+	int FindPalindrome(int );
+int main() {
+	scanf("%d", &OriginNum);
+	n = OriginNum;
+	printf("%d", FindPalindrome(Palindrome(n)));
+}
+int Palindrome(int num) {
+
+	while (n != 0) {
+		RemainNum = n % 10;
+		ReversedNum = ReversedNum * 10 + RemainNum;
+		n= n / 10;
+	}
+	if (ReversedNum == OriginNum) {
+		return 1;
+	}
+	else
+		return 0;
+}
+int FindPalindrome(int num) {
+	int find = 0;
+	while (!find) {
+		num++;
+		if (Palindrome(num)==1) {
+			find = 1;
+		}
+	return num;
+}
