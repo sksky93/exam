@@ -1,34 +1,47 @@
 #include <stdio.h>
-	int OriginNum; 
-	int ReversedNum = 0;
-	int RemainNum=0;
-	int n,i;
-	int Palindrome(int );
-	int FindPalindrome(int );
+    int OriginNum; //원래 입력받은 수
+    int ReversedNum = 0; //거꾸로 된 수
+    int RemainNum=0;   //나머지
+    int n,i;
+    int Palindrome(int ); //회문인지 검사
+    int FindPalindrome(int ); //12345 입력시 12421 찾게하는 함수
 int main() {
-	scanf("%d", &OriginNum);
-	n = OriginNum;
-	printf("%d", FindPalindrome(Palindrome(n)));
+    scanf("%d", &OriginNum); //12345 입력
+    n = OriginNum;
+    if(Palidrome(n)){
+       printf("정답 출력");
+    }else
+    {
+        FindPalindrome(n);
+    }
+
 }
 int Palindrome(int num) {
 
-	while (n != 0) {
-		RemainNum = n % 10;
-		ReversedNum = ReversedNum * 10 + RemainNum;
-		n= n / 10;
-	}
-	if (ReversedNum == OriginNum) {
-		return 1;
-	}
-	else
-		return 0;
+    while (n != 0) {
+
+        RemainNum = n % 10;
+        ReversedNum = ReversedNum * 10 + RemainNum;
+        n= n / 10;
+    }
+    
+    if (ReversedNum == OriginNum) {  //회문인경우
+        return 1;
+    }
+    else
+        return 0;
 }
-int FindPalindrome(int num) {
-	int find = 0;
-	while (!find) {
-		num++;
-		if (Palindrome(num)==1) {
-			find = 1;
-		}
-	return num;
+
+int FindPalindrome(int num) {  //num = 12345
+
+    int find = 0;
+    while (!find) {
+        num++;
+        if (Palindrome(num)==1) {
+            find = 1;
+        }
+        else{
+        countinue;
+        }
+    return num;
 }
