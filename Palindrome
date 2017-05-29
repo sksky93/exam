@@ -1,47 +1,62 @@
 #include <stdio.h>
-    int OriginNum; //원래 입력받은 수
-    int ReversedNum = 0; //거꾸로 된 수
-    int RemainNum=0;   //나머지
-    int n,i;
-    int Palindrome(int ); //회문인지 검사
-    int FindPalindrome(int ); //12345 입력시 12421 찾게하는 함수
+#include <string.h>
+
+int* Palindrome(int, int);
+
 int main() {
-    scanf("%d", &OriginNum); //12345 입력
-    n = OriginNum;
-    if(Palidrome(n)){
-       printf("정답 출력");
-    }else
-    {
-        FindPalindrome(n);
-    }
+
+	int i;
+	int list[50];
+	int num;
+	scanf("%d", list);
+	int *p = &list[0];
+	int mid = strlen(list) / 2;
+	printf("%d", strlen(list));
+	for (i = 0;i < strlen(list);i++) {
+		if (i == NULL) {
+			break;
+		}
+		printf("%d",list[i]);
+		
+	}
+	
+
 
 }
-int Palindrome(int num) {
 
-    while (n != 0) {
+int* Palindrome(int* str, int mid) {
+	
+	int i,j;
+	int length = strlen(str);
+	int res[50];
+	if (length % 2 == 0) { //짝수일 때
+		if (str[mid] > str[mid - 1]) {   // 123542일 때,   
+			str[mid-1]= str[mid] + 1;
+			for (i = 0;i<length;i++) {
+				res[i] = str[i];           // 증가된 값을 res배열에 삽입
+			}
+		}
+		
+		else if (str[mid] < str[mid - 1]) {    //125342일 때,
+			for (i = 0;i < length;i++) {  
+				res[i] = str[i];               //125를 바로 res에 삽입
+			}
+		}
+	}
+	else {                 //홀수일 때
+		if (str[mid + 1] >= str[mid - 1]) { // 12345일 때,
+			str[mid] = str[mid] + 1;
+			for (i = 0;i < length;i++) {       //mid값을 증가 시킨후 삽입
+				res[i] = str[i];
+			}
+		}
+		else {                                  //12415일 때,
+			str[mid + 1] = str[mid] + 1;
+			for (i = 0;i < length;i++) {          //mid+1의 값을 증가 시킨 후 삽입
+				res[i] = str[i];
+			}
+		}
 
-        RemainNum = n % 10;
-        ReversedNum = ReversedNum * 10 + RemainNum;
-        n= n / 10;
-    }
-    
-    if (ReversedNum == OriginNum) {  //회문인경우
-        return 1;
-    }
-    else
-        return 0;
-}
-
-int FindPalindrome(int num) {  //num = 12345
-
-    int find = 0;
-    while (!find) {
-        num++;
-        if (Palindrome(num)==1) {
-            find = 1;
-        }
-        else{
-        countinue;
-        }
-    return num;
+	}
+	return res;
 }
